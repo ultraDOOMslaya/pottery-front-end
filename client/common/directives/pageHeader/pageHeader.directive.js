@@ -1,7 +1,7 @@
 (function () {
 
   angular
-    .module('loc8rApp')
+    .module('maak-pottery')
     .directive('pageHeader', pageHeader);
 
   function pageHeader () {
