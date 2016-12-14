@@ -10,6 +10,16 @@
         controller: 'homeCtrl',
         controllerAs: 'vm'
       })
+      .when('/pottery', {
+        templateUrl: '/common/views/potteryIndex.view.html',
+        controller: 'potteryCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/events', {
+        templateUrl: '/common/views/eventsIndex.view.html',
+        controller: 'eventsCtrl',
+        controllerAs: 'vm'
+      })
       .when('/about', {
         templateUrl: '/common/views/genericText.view.html',
         controller: 'aboutCtrl',
