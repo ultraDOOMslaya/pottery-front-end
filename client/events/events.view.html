@@ -1,0 +1,24 @@
+ <navigation></navigation>
+
+<div class="container">
+  <page-header content="vm.pageHeader"></page-header>
+
+  <div class="row">
+    <div class="error">{{ vm.message }}</div>
+    <div class="row list-group">
+      <div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events">
+        <h4>
+            <a href="#/event/{{ event._id }}">{{ event.name }}</a>
+            <span class="badge pull-right badge-default">{{ event.date }}</span>
+          </h4>
+          <p class="address">{{ event.description }}</p>
+          <p>{{ event.address }} at {{ event.time }}</p>
+        </div> 
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <p class="lead">{{ vm.sidebar.content }}</p>
+  </div>
+
+  <footer-generic></footer-generic>
+</div>

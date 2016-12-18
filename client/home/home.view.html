@@ -6,7 +6,14 @@
   <div class="row">
     <div class="error">{{ vm.message }}</div>
     <div class="row list-group">
-      <p>{{ vm.data }}</p>
+      <div class="col-xs-12 list-group-item" ng-repeat="pottery in vm.data.potteries">
+          {{ console.log("Any pottery data?: {}", vm.data); }}
+          <h4>
+            <span class="badge pull-right badge-default">{{ pottery.type }}</span>
+          </h4>
+          <p class="address">{{ pottery.description }}</p>
+          <p>Hello World!</p>
+        </div> 
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">

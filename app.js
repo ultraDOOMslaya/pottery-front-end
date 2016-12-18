@@ -9,7 +9,7 @@ var uglifyJs = require("uglify-js");
 var fs = require('fs');
 
 var routes = require('./server/routes/index');
-//var routesApi = require('./app_api/routes/index');
+var routesApi = require('./api/routes/index');
 // var users = require('./app_server/routes/users');
 
 var app = express();
@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'client')));
 
 //app.use('/', routes);
+app.use('/api', routesApi);
 
 app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));

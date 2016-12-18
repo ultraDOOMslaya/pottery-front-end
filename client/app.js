@@ -16,7 +16,7 @@
         controllerAs: 'vm'
       })
       .when('/events', {
-        templateUrl: '/common/views/eventsIndex.view.html',
+        templateUrl: '/events/events.view.html',
         controller: 'eventsCtrl',
         controllerAs: 'vm'
       })

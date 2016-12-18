@@ -1,23 +1,21 @@
-(function () {
+ (function () {
 
   angular
     .module('maak-pottery')
-    .controller('homeCtrl', homeCtrl);
+    .controller('eventsCtrl', eventsCtrl);
 
-  homeCtrl.$inject = ['$scope', 'potteryData'];
-  function homeCtrl ($scope, potteryData) {
+  homeCtrl.$inject = ['$scope', 'eventsData'];
+  function eventsCtrl ($scope, eventsData) {
     
     var vm = this;
     vm.pageHeader = {
-      title: 'Maakestad Pottery',
-      strapline: 'Explore the work of artisan potter, Jon P. Maakestad'
+      title: 'Upcoming Events',
+      strapline: 'Come visit my booth.'
     };
 
     potteryData.pottery()
         .success(function(data) {
-          console.log("What data do i get back?: {}", data);
-          vm.data = { potteries : data };
-          console.log(JSON.stringify(vm.data));
+          vm.data = { events : data };
     });
 
     vm.sidebar = {
