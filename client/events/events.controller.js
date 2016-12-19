@@ -4,7 +4,7 @@
     .module('maak-pottery')
     .controller('eventsCtrl', eventsCtrl);
 
-  homeCtrl.$inject = ['$scope', 'eventsData'];
+  eventsCtrl.$inject = ['$scope', 'eventsData'];
   function eventsCtrl ($scope, eventsData) {
     
     var vm = this;
@@ -13,14 +13,11 @@
       strapline: 'Come visit my booth.'
     };
 
-    potteryData.pottery()
+    console.log("load eventsCtrl in the client?");
+    eventsData.event()
         .success(function(data) {
           vm.data = { events : data };
     });
-
-    vm.sidebar = {
-      content: "Jon Maakestad hails from a long line of artists. Jon began his humble beginnings at Luther Collage were he majored in art with a focus on pottery. The student body and facualty found his craftsmanship beautiful and he has been making artisan pottery ever since. "
-    };
 
     vm.showError = function (error) {
       $scope.$apply(function() {

@@ -21,5 +21,5 @@ module.exports.eventsList = function(req, res) {
         description: "Come view my booth outside alongside lake minnetonka."
     };
     var events = [event1, event2];
-    sendJSONresponse(res, 200, potteries);
+    sendJSONresponse(res, 200, events);
 }            

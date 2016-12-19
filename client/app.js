@@ -3,7 +3,6 @@
   angular.module('maak-pottery', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
   function config ($routeProvider, $locationProvider) {
-    console.log("About to load the page...");
     $routeProvider
       .when('/', {
         templateUrl: '/home/home.view.html',
@@ -18,6 +17,11 @@
       .when('/events', {
         templateUrl: '/events/events.view.html',
         controller: 'eventsCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/events/new', {
+        templateUrl: '/events/newEvent.view.html',
+        controller: 'newEventCtrl',
         controllerAs: 'vm'
       })
       .when('/about', {
