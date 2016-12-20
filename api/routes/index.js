@@ -8,4 +8,5 @@ router.get('/pottery', ctrlPottery.potteryList);
 //router.get('/pottery/:potteryid', ctrlPottery.potteryReadOne);
 
 router.get('/events', ctrlEvents.eventsList);
+router.get('/events/:eventId', ctrlEvents.eventsReadOne);
 module.exports = router;

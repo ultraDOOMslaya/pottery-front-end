@@ -22,4 +22,16 @@ module.exports.eventsList = function(req, res) {
     };
     var events = [event1, event2];
     sendJSONresponse(res, 200, events);
-}            
+}
+
+module.exports.eventsReadOne = function(req, res) {
+    var event1 = {
+         _id: "1",
+        name: "Minnetonka Arts Fair",
+        date: "December 14, 2016",
+        address: "Minnetonka Arts Center",
+        time: "2PM",
+        description: "Come view my work and others during the open ours of the Minnetonka Christmass Art show. "   
+    };
+    sendJSONresponse(req, 200, event1);
+}

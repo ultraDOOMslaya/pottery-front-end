@@ -24,6 +24,11 @@
         controller: 'newEventCtrl',
         controllerAs: 'vm'
       })
+      .when('/events/:eventId', {
+        templateUrl: '/events/editEvent.view.html',
+        controller: 'editEventCtrl',
+        controllerAs: 'vm'
+      })
       .when('/about', {
         templateUrl: '/common/views/genericText.view.html',
         controller: 'aboutCtrl',
