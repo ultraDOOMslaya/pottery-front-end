@@ -8,11 +8,11 @@
     <div class="row list-group">
       <div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events">
         <h4>
-            <a href="#/event/{{ event._id }}">{{ event.name }}</a>
-            <span class="badge pull-right badge-default">{{ event.date }}</span>
+            <a href="#/event/{{ event.id }}">{{ event.eventName }}</a>
+            <span class="badge pull-right badge-default">{{ event.eventDate }}</span>
           </h4>
-          <p class="address">{{ event.description }}</p>
-          <p>{{ event.address }} at {{ event.time }}</p>
+          <p class="address">{{ event.eventDescription }}</p>
+          <p>{{ event.eventTime }}</p>
         </div> 
     </div>
   </div>

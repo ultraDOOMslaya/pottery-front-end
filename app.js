@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use('/api', routesApi);
 
 app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });
 
 // catch 404 and forward to error handler
@@ -36,6 +36,12 @@ app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
+});
+
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
 });
 
 // error handlers

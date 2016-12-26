@@ -16,6 +16,7 @@
     console.log("load eventsCtrl in the client?");
     eventsData.event()
         .success(function(data) {
+          console.log("Data returned from ext api: " + JSON.stringify(data));
           vm.data = { events : data };
     });
 

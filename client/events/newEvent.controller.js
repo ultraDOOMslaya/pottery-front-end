@@ -26,14 +26,14 @@
     };
 
     vm.addEvent = function (formData) {
-      eventsData.addReview({
+      eventsData.addEvent({
         name : formData.name,
         date : formData.date,
         description : formData.description,
         time : formData.time
       })
         .success(function (data) {
-          
+          //location.path("/events");
         })
         .error(function (data) {
           vm.formError = "I couldn't save your event Dad, please try again";
