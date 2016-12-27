@@ -4,10 +4,12 @@
     .module('maak-pottery')
     .controller('newEventCtrl', newEventCtrl);
 
-  newEventCtrl.$inject = ['eventsData'];
-  function newEventCtrl (eventsData) {
+  newEventCtrl.$inject = ['eventsData', '$location'];
+  function newEventCtrl (eventsData, location) {
+    
     var vm = this;
     vm.eventsData = eventsData;
+    vm.location = location;
 
     vm.pageHeader = {
       title: "Add a new event.",
@@ -27,13 +29,13 @@
 
     vm.addEvent = function (formData) {
       eventsData.addEvent({
-        name : formData.name,
-        date : formData.date,
-        description : formData.description,
-        time : formData.time
+        eventName : formData.name,
+        eventDate : formData.date,
+        eventDescription : formData.description,
+        eventTime : formData.time
       })
         .success(function (data) {
-          //location.path("/events");
+          vm.location.path("/events");
         })
         .error(function (data) {
           vm.formError = "I couldn't save your event Dad, please try again";

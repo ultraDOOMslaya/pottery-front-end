@@ -1,6 +1,6 @@
 (function () {
 
-  angular.module('maak-pottery', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
+  angular.module('maak-pottery', ['ngRoute', 'ngSanitize', 'ui.bootstrap', 'ngFileUpload']);
 
   function config ($routeProvider, $locationProvider) {
     $routeProvider
@@ -10,9 +10,14 @@
         controllerAs: 'vm'
       })
       .when('/pottery', {
-        templateUrl: '/common/views/potteryIndex.view.html',
+        templateUrl: '/pottery/pottery.view.html',
         controller: 'potteryCtrl',
         controllerAs: 'vm'
+      })
+      .when('/pottery/new', {
+        templateUrl: '/pottery/newPottery.view.html',
+        controller: 'newPotteryCtrl',
+        controllerAs: 'vm'       
       })
       .when('/events', {
         templateUrl: '/events/events.view.html',

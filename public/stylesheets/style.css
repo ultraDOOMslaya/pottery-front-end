@@ -7,3 +7,7 @@
 .label-facility {margin-right: 2px}
 .rating-stars {margin-left: 3px;}
 #filter {margin-left: 4px;}
+
+.submit-button {
+    float: right;
+}
