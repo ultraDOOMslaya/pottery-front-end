@@ -31,10 +31,6 @@
                     <button ng-click="vm.formData.potteryFile = null" ng-show="vm.formData.potteryFile">Remove</button>
                 </div>                                                                                              
                 <button type="submit" class=" submit-button btn btn-primary">Submit</button>
-                <span class="progress" ng-show="vm.formData.potteryFile.progress >= 0">
-                    <div style="width:{{vm.formData.potteryFile.progress}}%" ng-bind="vm.formData.potteryFile.progress + '%'"></div>
-                </span>
-                <span ng-show="vm.formData.potteryFile.result">Upload Successful</span>
             </form>
         </div>
     </div>

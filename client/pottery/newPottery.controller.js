@@ -12,7 +12,7 @@
     vm.location = location;
 
     vm.pageHeader = {
-      title: "Add a new pot.",
+      title: "Add a new pottery.",
       strapline: ""
     };
 
@@ -38,11 +38,12 @@
     vm.addPottery = function (formData) {
       potteryData.addPottery({
         potteryType : formData.type,
-        potteryDescription : formData.description
+        potteryDescription : formData.description,
+        potteryFileName : formData.potteryFile.name
       })
         .success(function (data) {
-           
-          //vm.location.path("/pottery");
+          console.log("the data returned from the server is: {}", data);
+          vm.location.path("/pottery");
         })
         .error(function (data) {
           vm.formError = "I couldn't save your event Dad, please try again";
