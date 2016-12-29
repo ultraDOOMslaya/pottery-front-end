@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 //require('./app_api/models/db');
 var uglifyJs = require("uglify-js");
 var fs = require('fs');
-
+var srcRoot = __dirname;
+//file upload
+var multipart = require('connect-multiparty');
 var routes = require('./server/routes/index');
 var routesApi = require('./api/routes/index');
 // var users = require('./app_server/routes/users');
@@ -30,6 +32,7 @@ app.use('/api', routesApi);
 app.use(function(req, res) {
     res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
