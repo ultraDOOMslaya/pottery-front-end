@@ -8,7 +8,7 @@
   function potteryData ($http) {
 
     var pottery = function() {
-        return $http.get("/api/pottery");
+        return $http.get("http://localhost:8080/pottery");
     };
 
     return {
