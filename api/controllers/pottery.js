@@ -40,7 +40,7 @@ module.exports.potteryFile = function(req, res) {
                 sendjsonresponse(res, 400, err);
             }
             console.log("success!");
-            sendjsonresponse(res, 200, file.name);
+            sendJSONresponse(res, 200, file.name);
         });
     });
 

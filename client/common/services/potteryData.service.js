@@ -11,8 +11,13 @@
         return $http.get("http://localhost:8080/pottery");
     };
 
+    var addPottery = function(data) {
+        return $http.post("http://localhost:8080/pottery", data);
+    };
+
     return {
-      pottery : pottery
+      pottery : pottery,
+      addPottery : addPottery
     };
   }
 
