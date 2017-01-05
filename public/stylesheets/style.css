@@ -11,3 +11,11 @@
 .submit-button {
     float: right;
 }
+
+.thumbnails {text-align: center;}
+.thumbnails .thumbnail {display: inline-block; margin: 0 5px;}
+
+.pottery-thumbnail {
+    width: 150px;
+    height: 150px;
+}

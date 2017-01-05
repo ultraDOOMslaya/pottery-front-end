@@ -33,7 +33,7 @@ module.exports.potteryFile = function(req, res) {
             console.log("Could not read file data");
             sendjsonresponse(res, 400, err);
         }
-        var newPath = __dirname + "/../uploads/" + file.name;
+        var newPath = __dirname + "/../../public/images/uploads/" + file.name;
         fs.writeFile(newPath, data, function (err) {
             if(err) {
                 console.log("Could not write file data");
