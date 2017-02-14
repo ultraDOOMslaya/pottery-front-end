@@ -4,13 +4,26 @@
     .module('maak-pottery')
     .controller('potteryCtrl', potteryCtrl);
 
-  potteryCtrl.$inject = ['$scope', 'potteryData'];
-  function potteryCtrl ($scope, potteryData) {
+  potteryCtrl.$inject = ['$scope', '$location', 'potteryData'];
+  function potteryCtrl ($scope, location, potteryData) {
     
     var vm = this;
+    vm.location = location;
     vm.pageHeader = {
       title: 'My gallery'
     };
+
+    vm.viewPottery = function(data) {
+
+      console.log("viewing the potterydata");
+    }
+
+
+    vm.viewPottery = function(pottery) {
+      console.log("Hit the view pottery function from the pottery ctrl?");
+        var view = '/pottery/' + pottery.id;
+        vm.location.path(view);
+    }
 
     potteryData.pottery()
       .success(function(data) {

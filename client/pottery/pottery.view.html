@@ -11,10 +11,12 @@
         <ul class="thumbnails list-unstyled" >
             <div ng-repeat="pottery in vm.data.potteries">
                 <li class="col-xs-4">
-                    <div class="thumbnail">
-                        <span class="badge pull-right badge-default">{{ pottery.potteryType }}</span>
-                        <img class="pottery-thumbnail" ng-src="images/uploads/{{pottery.potteryFileName}}"
-                                                       alt="pottery"/>                    
+                    <div ng-click="vm.viewPottery(pottery)">
+                        <div class="thumbnail" >
+                            <span class="badge pull-right badge-default">{{ pottery.potteryType }}</span>
+                            <img class="pottery-thumbnail" ng-src="images/uploads/{{pottery.potteryFileName}}"
+                                                           alt="pottery"/>                    
+                        </div>
                     </div>
                 </li>
             </div>
