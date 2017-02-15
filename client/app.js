@@ -24,6 +24,11 @@
         controller: 'newPotteryCtrl',
         controllerAs: 'vm'       
       })
+      .when('/pottery/:potteryId/edit', {
+        templateUrl: '/pottery/newPottery.view.html',
+        controller: 'editPotteryCtrl',
+        controllerAs: 'vm'
+      })
       .when('/events', {
         templateUrl: '/events/events.view.html',
         controller: 'eventsCtrl',

@@ -13,16 +13,9 @@
       title: 'My gallery'
     };
 
-    vm.viewPottery = function(data) {
-
-      console.log("viewing the potterydata");
-    }
-
-
     vm.viewPottery = function(pottery) {
-      console.log("Hit the view pottery function from the pottery ctrl?");
-        var view = '/pottery/' + pottery.id;
-        vm.location.path(view);
+      var view = '/pottery/' + pottery.id;
+      vm.location.path(view);
     }
 
     potteryData.pottery()
@@ -39,5 +32,4 @@
     };
 
   }
-console.log("load everything in pottery ctrl?");
 })();

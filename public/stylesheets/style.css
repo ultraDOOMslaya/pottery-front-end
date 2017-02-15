@@ -15,7 +15,40 @@
 .thumbnails {text-align: center;}
 .thumbnails .thumbnail {display: inline-block; margin: 0 5px;}
 
+
+//This works but its a bit obtrusive... I will use it on the front page but without 
+//changing the size of the thumbnail
+/*
+.thumbnail:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    margin-bottom:25px;
+    width:185;
+    height:175;
+    display:block;
+    z-index:999;
+}
+*/
+
 .pottery-thumbnail {
     width: 150px;
     height: 150px;
+}
+
+.view-pottery-container {
+    min-height:400px;
+    font-size:20px;
+}
+
+.view-pottery-image {
+    width:100%;
+    height:100%;
+    max-width:400px;
+    max-height:350px;
+    float: right;
+}
+
+.custom-btn-group {
+    float: right;
 }
