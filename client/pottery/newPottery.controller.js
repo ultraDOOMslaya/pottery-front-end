@@ -16,6 +16,8 @@
       strapline: ""
     };
 
+    console.log("Currently loading the new pottery controller...");
+
 
     vm.onSubmit = function () {
       vm.formError = "";

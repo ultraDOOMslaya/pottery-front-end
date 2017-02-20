@@ -5,30 +5,32 @@
 
     <div class="row">
         <div class="error">{{ vm.message }}</div>
+    </div>
+    <div class="row">
         <div class="form-group">
             <form id="addPottery" name="addPottery" role="form" ng-submit="vm.onSubmit()" class="form-horizontal">
                 <div class="row">
                     <label for="name" class="col-xs-2 col-sm-2 control-label">Pottery Type</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="name" ng-model="vm.formData.type" class="form-control" required="required"/>
+                        <input name="name" ng-model="vm.formData.pottery.potteryType" class="form-control" required="required"/>
                     </div>
                 </div>
                 <div class="row">
                     <label for="date" class="col-xs-2 col-sm-2 control-label">Pottery Description</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="date" ng-model="vm.formData.description" class="form-control" required="required"/>
+                        <input name="date" ng-model="vm.formData.pottery.potteryDescription" class="form-control" required="required"/>
                     </div>
                 </div>
                 <div class="row">
                     <label for="file" class="col-xs-2 col-sm-2 control-label">Pottery Image</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input type="file" name="file" ngf-select ng-model="vm.formData.potteryFile" 
-                         accept="image/*" ngf-max-size="5MB" required="required"/>
+                        <input type="file"  name="file" ngf-select ng-model="vm.formData.pottery.potteryFileName" 
+                         accept="image/*" ngf-max-size="5MB" />
                     </div>
                 </div>
                 <div class="row">
-                    <img ng-show="addPottery.file.$valid" ngf-thumbnail="images/uploads/{{vm.formData.potteryFile}}" class="thumb">
-                    <button ng-click="vm.formData.potteryFile = null" ng-show="vm.formData.potteryFile">Remove</button>
+                    <img ng-show="addPottery.file.$valid" ngf-src="vm.formData.pottery.potteryFileName" class="thumb">
+                    <button ng-click="vm.formData.pottery.potteryFileName = null; vm.showFileInput = true" ng-show="vm.formData.pottery.potteryFileName">Remove</button>
                 </div>                                                                                              
                 <button type="submit" class=" submit-button btn btn-primary">Submit</button>
             </form>
