@@ -13,9 +13,14 @@
                 <li class="col-xs-4">
                     <div ng-click="vm.viewPottery(pottery)">
                         <div class="thumbnail" >
-                            <span class="badge pull-right badge-default">{{ pottery.potteryType }}</span>
-                            <img class="pottery-thumbnail" ng-src="images/uploads/{{pottery.potteryFileName}}"
-                                                           alt="pottery"/>                    
+                            <div class="row">
+                                <div class="col-xs-8"></div>
+                                <div class="col-xs-4">
+                                    <span class="pottery-type badge badge-default">{{ pottery.potteryType }}</span>
+                                </div>
+                            </div>
+                            <img class="img-rounded" ng-src="images/uploads/{{pottery.potteryFileName}}"
+                                 alt="pottery" />                    
                         </div>
                     </div>
                 </li>

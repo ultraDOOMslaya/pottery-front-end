@@ -1,21 +1,55 @@
- <navigation></navigation>
+<navigation></navigation>
 
 <div class="container">
-  <page-header content="vm.pageHeader"></page-header>
+    <page-header content="vm.pageHeader"></page-header>
 
-  <div class="row">
-    <div class="error">{{ vm.message }}</div>
-    <div class="row list-group">
-      <div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events">
-        <h4>
-            <a href="#/event/{{ event.id }}">{{ event.eventName }}</a>
-            <span class="badge pull-right badge-default">{{ event.eventDate }}</span>
-          </h4>
-          <p class="address">{{ event.eventDescription }}</p>
-          <p>{{ event.eventTime }}</p>
-        </div> 
+    <div class="row" ng-show="vm.staticContent" >
+        <div class="error">{{ vm.message }}</div>
+        <div class="row list-group">
+            <div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events">
+                <h4>
+                    <a href="#/event/{{ event.id }}">{{ event.eventName }}</a>
+                    <span class="badge pull-right badge-default">{{ event.eventDate }}</span>
+                </h4>
+                <p class="address">{{ event.eventDescription }}</p>
+                <p>{{ event.eventTime }}</p>
+
+            </div> 
+        </div>
     </div>
-  </div>
 
-  <footer-generic></footer-generic>
+
+    <div class="row" ng-show="vm.modifyContent">
+        <div class="form-group">
+            <form id="addEvent" name="addEvent" role="form" ng-submit="vm.onSubmit()" class="form-horizontal">
+                <div class="row">
+                    <label for="name" class="col-xs-2 col-sm-2 control-label">Event Name</label>
+                    <div class="col-xs-10 col-sm-10">
+                        <input name="name" ng-model="vm.formData.eventName" class="form-control" required="required"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="date" class="col-xs-2 col-sm-2 control-label">Event Description</label>
+                    <div class="col-xs-10 col-sm-10">
+                        <input name="date" ng-model="vm.formData.eventDescription" class="form-control" required="required"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="date" class="col-xs-2 col-sm-2 control-label">Event Date</label>
+                    <div class="col-xs-10 col-sm-10">
+                        <input name="date" ng-model="vm.formData.eventDate" class="form-control" required="required"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="date" class="col-xs-2 col-sm-2 control-label">Event Time</label>
+                    <div class="col-xs-10 col-sm-10">
+                        <input name="date" ng-model="vm.formData.eventTime" class="form-control" required="required"/>
+                    </div>
+                </div>
+                <button type="submit" class=" submit-button btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer-generic></footer-generic>
 </div>

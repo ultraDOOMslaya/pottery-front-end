@@ -14,18 +14,18 @@
         controller: 'potteryCtrl',
         controllerAs: 'vm'
       })
-      .when('/pottery/:potteryId', {
-        templateUrl: '/pottery/viewPottery.view.html',
-        controller: 'viewPotteryCtrl',
-        controllerAs: 'vm'
-      })
       .when('/pottery/new', {
         templateUrl: '/pottery/newPottery.view.html',
         controller: 'newPotteryCtrl',
         controllerAs: 'vm'       
       })
+      .when('/pottery/:potteryId', {
+        templateUrl: '/pottery/viewPottery.view.html',
+        controller: 'viewPotteryCtrl',
+        controllerAs: 'vm'
+      })
       .when('/pottery/:potteryId/edit', {
-        templateUrl: '/pottery/newPottery.view.html',
+        templateUrl: '/pottery/editPottery.view.html',
         controller: 'editPotteryCtrl',
         controllerAs: 'vm'
       })

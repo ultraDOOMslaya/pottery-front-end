@@ -12,8 +12,18 @@
     float: right;
 }
 
-.thumbnails {text-align: center;}
-.thumbnails .thumbnail {display: inline-block; margin: 0 5px;}
+.thumbnails {
+    text-align: center;
+    
+}
+.thumbnails .thumbnail {
+    display: inline-block;
+    margin: 0 5px;
+    margin-bottom: 15px;
+}
+.pottery-type {
+    float: right;
+}
 
 
 //This works but its a bit obtrusive... I will use it on the front page but without 
@@ -30,11 +40,6 @@
     z-index:999;
 }
 */
-
-.pottery-thumbnail {
-    width: 150px;
-    height: 150px;
-}
 
 .view-pottery-container {
     min-height:400px;

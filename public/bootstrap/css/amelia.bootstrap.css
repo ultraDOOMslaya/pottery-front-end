@@ -5242,7 +5242,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #ad1d28;
+  background-color: black;
   border-radius: 10px;
 }
 
@@ -5313,10 +5313,15 @@ a.list-group-item.active > .badge,
   display: inline-block;
   display: block;
   height: auto;
-  max-width: 100%;
-  padding: 4px;
+  max-width: 200px;
+  min-width: 200px;
+  min-height: 225px;
+  max-height: 225px;
+  padding: 2%;
   line-height: 1.428571429;
-  background-color: #108a93;
+  /*background-color: #108a93;*/
+  background: grey;
+  background: linear-gradient(grey, white);
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -5325,8 +5330,12 @@ a.list-group-item.active > .badge,
 
 .thumbnail > img {
   display: block;
-  height: auto;
+  height: 100%;
   max-width: 100%;
+  margin: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  object-fit: contain;
 }
 
 a.thumbnail:hover,

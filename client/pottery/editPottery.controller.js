@@ -25,10 +25,23 @@
     potteryData.getPottery(vm.routeParams.potteryId)
       .success(function(data) {
         vm.formData = { pottery : data };
+        console.log("On server load for the pottery edit page, heres the data: {}", JSON.stringify(vm.formData));
         data.potteryFileName = "/images/uploads/" + data.potteryFileName;
       });
 
-    
+    //The api needs the fileName but not the file path... remove the file path. 
+    fileInstanceParse = function (file) {
+      if (file.name) {
+        return file.name;
+      }
+      return pathParse(file);
+    }
+
+    pathParse = function (path) {
+      var fileName = path.split("/");
+      return fileName[fileName.length-1];
+    }
+
     vm.showError = function (error) {
       $scope.$apply(function() {
         vm.message = error.message;
@@ -45,20 +58,27 @@
       } else {  
         console.log("the form data for the pottery: {}", vm.formData);
         console.log("the form data photo for the pottery: {}", vm.formData.pottery.potteryFileName);
-        vm.formData.pottery.potteryFileName.upload = Upload.upload({
-          url: 'http://localhost:3000/api/pottery',
-          method: 'POST',
-          file: vm.formData.pottery.potteryFileName
-        });
+       
+        //TDOD (Boilerplate) externalize this since the newPottery controller also uses this.
+        if (vm.showFileInput === true) {
+          vm.formData.pottery.potteryFileName.upload = Upload.upload({
+            url: 'http://localhost:3000/api/pottery',
+            method: 'POST',
+            file: vm.formData.pottery.potteryFileName
+          });
+        } 
         vm.addPottery(vm.formData.pottery);
       }
     };
 
+    //TODO (Boilerplate) standardize these field names with the newPottery controller...
     vm.addPottery = function (formData) {
-      potteryData.addPottery({
+      console.log("Before sending information to the client api... here is the pottery data: {}", formData);
+      potteryData.updatePottery({
+        id : formData.id,
         potteryType : formData.potteryType,
         potteryDescription : formData.potteryDescription,
-        potteryFileName : formData.potteryFileName.name
+        potteryFileName : fileInstanceParse(formData.potteryFileName)
       })
         .success(function (data) {
           console.log("the data returned from the server is: {}", data);

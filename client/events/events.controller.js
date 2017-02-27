@@ -8,6 +8,9 @@
   function eventsCtrl ($scope, eventsData) {
     
     var vm = this;
+    vm.staticContent = true;
+    vm.modifyContent = false;
+
     vm.pageHeader = {
       title: 'Upcoming Events',
       strapline: 'Come visit my booth.'
