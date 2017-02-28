@@ -23,6 +23,10 @@
           vm.data = { events : data };
     });
 
+    vm.editEvent = function(event) {
+      vm.formData = {event: event};
+    }
+
     vm.showError = function (error) {
       $scope.$apply(function() {
         vm.message = error.message;
