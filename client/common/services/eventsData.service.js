@@ -17,7 +17,7 @@
       return $http.get("http://localhost:8080/events/" + eventId);
     };
 
-    var addEvent = function (data) {
+    var updateEvent = function (data) {
       return $http.post("http://localhost:8080/events", data);
     };
 

@@ -19,8 +19,8 @@
                 </div>
             </div> 
         </div>
+        <button type="button" style="float:right;" class="edit-button btn btn-lg" ng-click="vm.newEvent()">New Event</button>
     </div>
-
 
     <div class="row" ng-show="vm.modifyContent">
         <div class="form-group">
@@ -28,28 +28,31 @@
                 <div class="row">
                     <label for="name" class="col-xs-2 col-sm-2 control-label">Event Name</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="name" ng-model="vm.formData.eventName" class="form-control" required="required"/>
+                        <input name="name" ng-model="vm.formData.event.eventName" class="form-control" required="required"/>
                     </div>
                 </div>
                 <div class="row">
-                    <label for="date" class="col-xs-2 col-sm-2 control-label">Event Description</label>
+                    <label for="description" class="col-xs-2 col-sm-2 control-label">Event Description</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="date" ng-model="vm.formData.eventDescription" class="form-control" required="required"/>
+                        <input name="description" ng-model="vm.formData.event.eventDescription" class="form-control" required="required"/>
                     </div>
                 </div>
                 <div class="row">
                     <label for="date" class="col-xs-2 col-sm-2 control-label">Event Date</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="date" ng-model="vm.formData.eventDate" class="form-control" required="required"/>
+                        <input name="date" ng-model="vm.formData.event.eventDate" class="form-control" required="required"/>
                     </div>
                 </div>
                 <div class="row">
-                    <label for="date" class="col-xs-2 col-sm-2 control-label">Event Time</label>
+                    <label for="time" class="col-xs-2 col-sm-2 control-label">Event Time</label>
                     <div class="col-xs-10 col-sm-10">
-                        <input name="date" ng-model="vm.formData.eventTime" class="form-control" required="required"/>
+                        <input name="time" ng-model="vm.formData.event.eventTime" class="form-control" required="required"/>
                     </div>
                 </div>
-                <button type="submit" class=" submit-button btn btn-primary">Submit</button>
+                <div class="row">
+                    <button type="submit" style="float:right;" class="edit-button btn">Submit</button>
+                    <button type="button" style="float:right;" class="edit-button btn" ng-click="vm.cancel()" >cancel</button>
+                </div>
             </form>
         </div>
     </div>
