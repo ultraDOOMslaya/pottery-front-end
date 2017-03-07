@@ -4,11 +4,13 @@
     .module('maak-pottery')
     .controller('eventsCtrl', eventsCtrl);
 
-  eventsCtrl.$inject = ['$scope', 'eventsData'];
-  function eventsCtrl ($scope, eventsData) {
+  eventsCtrl.$inject = ['$scope', '$route', '$location', 'eventsData'];
+  function eventsCtrl ($scope, route, location, eventsData) {
     
     var vm = this;
     vm.eventsData = eventsData;
+    vm.location = location;
+    vm.route = route;
     vm.staticContent = true;
     vm.modifyContent = false;
 
@@ -17,10 +19,8 @@
       strapline: 'Come visit my booth.'
     };
 
-    console.log("load eventsCtrl in the client?");
     eventsData.event()
         .success(function(data) {
-          console.log("Data returned from ext api: " + JSON.stringify(data));
           vm.data = { events : data };
     });
 
@@ -51,22 +51,21 @@
         vm.formError = "All fields are required Dad, please try again";
         return false;
       } else {  
-        console.log("the form data for the event: {}", vm.formData);
-        vm.updateEvent(vm.formData);
+        vm.updateEvent(vm.formData.event);
       }
     };
 
     vm.updateEvent = function (event) {
       eventsData.updateEvent({
-        eventId : (typeof event.id === 'undefined') ? true : "",
+        id : event.id,
         eventName : event.eventName,
-        potteryDescription : event.eventDescription,
-        potteryFileName : event.eventDate,
+        eventDescription : event.eventDescription,
+        eventDate : event.eventDate,
         eventTime : event.eventTime
       })
         .success(function (data) {
           console.log("the data returned from the server is: {}", data);
-          vm.location.path("/pottery");
+          route.reload();
         })
         .error(function (data) {
           vm.formError = "I couldn't save your event Dad, please try again";
@@ -74,6 +73,15 @@
       return false;
     };
   
+    vm.deleteEvent = function (event) {
+      var deleteConfirmation = confirm("Are you sure you want to delete the " + event.eventName + " event?");
+      if(deleteConfirmation) {
+        eventsData.deleteEvent(event.id)
+        .success(function() {
+          route.reload();
+        });
+      }
+    }
 
     vm.showError = function (error) {
       $scope.$apply(function() {

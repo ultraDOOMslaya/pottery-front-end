@@ -18,13 +18,19 @@
     };
 
     var updateEvent = function (data) {
-      return $http.post("http://localhost:8080/events", data);
+      return $http.put("http://localhost:8080/events", data);
     };
+
+    var deleteEvent = function (eventId) {
+      return $http.delete("http://localhost:8080/events/" + eventId);
+    }
 
     return {
       event : event,
       addEvent : addEvent,
-      eventById : eventById
+      eventById : eventById,
+      updateEvent : updateEvent,
+      deleteEvent : deleteEvent
     };
   }
 
