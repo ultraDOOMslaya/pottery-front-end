@@ -1,0 +1,23 @@
+
+<div class="container">
+    <page-header content="vm.pageheader"></page-header>
+
+    <div class="row">
+        <div class="error">{{ vm.message }}</div>
+    </div>
+
+    <div class="row">
+        <div class="list">
+            <label for="username" class="control-label">
+                <input name="username" ng-model="vm.data.username" placeholder="Username" required="required"/>
+            </label>
+            <label for="password" class="control-label">
+                <input name="password" ng-model="vm.data.passowrd" placeholder="Password" required="required"/>
+            </label>
+        </div>
+    </div>
+    <button class="btn btn-lg" ng-click="login(vm.data)">Login</button>
+
+</div>
+
+<fotter></footer>
