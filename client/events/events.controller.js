@@ -16,7 +16,7 @@
 
     vm.pageHeader = {
       title: 'Upcoming Events',
-      strapline: 'Come visit my booth.'
+      strapline: $scope.username
     };
 
     eventsData.event()

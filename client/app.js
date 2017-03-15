@@ -2,11 +2,16 @@
 
   angular.module('maak-pottery', ['ngRoute', 'ngSanitize', 'ui.bootstrap', 'ngFileUpload']);
 
-  function config ($routeProvider, $locationProvider) {
+  function config ($routeProvider, $locationProvider, USER_ROLES) {
     $routeProvider
       .when('/', {
         templateUrl: '/home/home.view.html',
         controller: 'homeCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/login', {
+        templateUrl: '/auth/login/login.view.html',
+        controller: 'loginCtrl',
         controllerAs: 'vm'
       })
       .when('/pottery', {
@@ -47,6 +52,11 @@
       .when('/about', {
         templateUrl: '/common/views/genericText.view.html',
         controller: 'aboutCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/register', {
+        templateUrl: '/auth/register/register.view.html',
+        controller: 'registerCtrl',
         controllerAs: 'vm'
       })
       //.when('/location/:locationid', {

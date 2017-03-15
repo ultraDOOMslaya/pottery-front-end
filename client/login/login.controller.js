@@ -11,16 +11,34 @@
     var vm = this;
     vm.authService = authService;
     $scope.data = {};
-    vm.location = location; 
+    vm.location = location;
+    
+    $scope.setCurrentUser = function(user) {
+      $scope.username = user.username;
+    }
  
     $scope.login = function(data) {
+      console.log("The login data is: {}", JSON.stringify(data));
       authService.login(data.username, data.password).then(function(authenticated) {
         //$state.go('main.dash', {}, {reload: true});
-        vm.location.path("/home");
-        $scope.setCurrentUsername(data.username);
+        //$scope.setCurrentUsername(data.username);
+        $scope.setCurrentUser({username: data.username});
+        console.log("Set the current user to scope.username.");
       }, function(err) {
         alert("failed to login");
+      }).then(function() {
+        vm.location.path("/");
+        route.reload();
       });
+    
     };
+
+    redirect = function() {
+      if(vm.authStatus) {
+        vm.location.path("/home");
+      }
+    }
+
+    
   }
 })();
