@@ -22,9 +22,16 @@
     };
 
     login = function (user) {
-      return $http.post('http://localhost:8080/api/auth/login', user).success(function(data) {
-        saveToken(data.token);
-      });
+      return $http({
+               method: 'POST',
+               url: 'http://localhost:8080/api/auth/login',
+               data: user,
+               headers: { 
+                 'X-Requested-With' : 'XMLHttpRequest'
+               }
+             }).success(function(data) {
+               saveToken(data.token);
+             });
     };
 
     logout = function () {
@@ -46,10 +53,13 @@
     var currentUser = function() {
       if(isLoggedIn()) {
         var token = getToken();
+        console.log("The token is: {}", token);
+        console.log("atobified token is: {}", ($window.atob(token.split('.')[1])));
         var payload = JSON.parse($window.atob(token.split('.')[1]));
+        console.log("The username is: {}", payload);
         return {
-          username : payload.username,
-          authorities : payload.authorities
+          username : payload.sub,
+          authorities : payload.scopes
         };
       }
     };
