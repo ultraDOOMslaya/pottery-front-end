@@ -4,28 +4,39 @@
     .module('maak-pottery')
     .service('potteryData', potteryData);
 
-  potteryData.$inject = ['$http'];
-  function potteryData ($http) {
+  potteryData.$inject = ['$http', 'authentication'];
+  function potteryData ($http, authentication) {
 
     var pottery = function() {
-        return $http.get("http://localhost:8080/pottery");
-    };
-
-    var addPottery = function(data) {
-        return $http.post("http://localhost:8080/pottery", data);
-    };
-
-    var updatePottery = function(data) {
-        console.log("The potteryData im trying to pass to the api is: {}", data);
-        return $http.put("http://localhost:8080/pottery", data);
+      return $http.get("http://localhost:8080/pottery");
     };
 
     var getPottery = function(id) {
-        return $http.get("http://localhost:8080/pottery/" + id);
+      return $http.get("http://localhost:8080/pottery/" + id);
+    };
+
+    var addPottery = function(data) {
+      return $http.post("http://localhost:8080/pottery", data, {
+        headers: {
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
+        }
+      });
+    };
+
+    var updatePottery = function(data) {
+      return $http.put("http://localhost:8080/pottery", data, {
+        headers: {
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
+        }
+      });
     };
 
     var deletePottery = function(id) {
-        return $http.delete("http://localhost:8080/pottery/" + id);
+      return $http.delete("http://localhost:8080/pottery/" + id, {
+        headers: {
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
+        }
+      });
     };
 
     return {

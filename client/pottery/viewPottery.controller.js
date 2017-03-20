@@ -4,12 +4,13 @@
     .module('maak-pottery')
     .controller('viewPotteryCtrl', viewPotteryCtrl);
 
-  viewPotteryCtrl.$inject = ['$scope', '$routeParams', '$location', 'potteryData'];
-  function viewPotteryCtrl ($scope, routeParams, location, potteryData) {
+  viewPotteryCtrl.$inject = ['$scope', '$routeParams', '$location', 'potteryData', 'authentication'];
+  function viewPotteryCtrl ($scope, routeParams, location, potteryData, authentication) {
     var vm = this;
     vm.location = location;
     vm.potteryData = potteryData;
     vm.routeParams = routeParams;
+    vm.isLoggedIn = authentication.isLoggedIn();
     vm.potteryDescription = "";
 
     vm.pageHeader = {

@@ -14,7 +14,7 @@
             <p style="white-space: pre;">{{vm.data.pottery.potteryDescription}}</p>
         </div>
     </div>
-    <div class="row btn-group custom-btn-group">
+    <div ng-show="vm.isLoggedIn" class="row btn-group custom-btn-group">
         <button type="button" class="btn btn-secondary" ng-click="vm.deletePottery(vm.data.pottery)">Delete</button>
         <button type="button" class="btn btn-secondary" ng-click="vm.editPottery(vm.data.pottery)">Edit</button>
     </div>
