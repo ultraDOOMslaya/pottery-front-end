@@ -13,6 +13,11 @@
       strapline: 'Explore the work of artisan potter, Jon P. Maakestad'
     };
 
+    $scope.links = [
+      { src:"/images/potteryFountain.jpg", alt:"", caption:"" },
+      { src:"/images/potteryFountain.jpg", alt:"", caption:"" },
+    ];
+
     potteryData.pottery()
         .success(function(data) {
           console.log("What data do i get back?: {}", data);

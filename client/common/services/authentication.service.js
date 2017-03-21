@@ -4,8 +4,8 @@
     .module('maak-pottery')
     .service('authentication', authentication);
 
-  authentication.$inject = ['$window', '$http'];
-  function authentication ($window, $http) {
+  authentication.$inject = ['$window', '$http', '$timeout'];
+  function authentication ($window, $http, $timeout) {
     
     var saveToken = function (token) {
       $window.localStorage['maak-pottery-token'] = token;
@@ -50,6 +50,16 @@
       }
     };
 
+    /**
+     * This method returns a promise which the routeProvider can use to check if the user
+     * is authenticated before accessing a route.
+     */
+    isAuthenticated = function() {
+      return $timeout(function(){
+        return isLoggedIn();
+      }, 1000);
+    };
+
     var currentUser = function() {
       if(isLoggedIn()) {
         var token = getToken();
@@ -71,7 +81,8 @@
       register : register,
       login : login,
       logout : logout,
-      isLoggedIn : isLoggedIn
+      isLoggedIn : isLoggedIn,
+      isAuthenticated : isAuthenticated
     };
   }
 })();

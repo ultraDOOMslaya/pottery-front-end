@@ -2,7 +2,7 @@
 
   angular.module('maak-pottery', ['ngRoute', 'ngSanitize', 'ui.bootstrap', 'ngFileUpload']);
 
-  function config ($routeProvider, $locationProvider, USER_ROLES) {
+  function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/home/home.view.html',
@@ -22,7 +22,18 @@
       .when('/pottery/new', {
         templateUrl: '/pottery/newPottery.view.html',
         controller: 'newPotteryCtrl',
-        controllerAs: 'vm'       
+        controllerAs: 'vm',
+        resolve: {
+          authorize: ['authentication', '$location', function(authentication, $location) {
+            return authentication.isAuthenticated()
+                                 .then(function(loggedIn) {
+                                   if(!loggedIn) {
+                                     $location.path("/");
+                                   }
+                                   return loggedIn;
+                                 });
+          }]
+        }
       })
       .when('/pottery/:potteryId', {
         templateUrl: '/pottery/viewPottery.view.html',
@@ -32,16 +43,22 @@
       .when('/pottery/:potteryId/edit', {
         templateUrl: '/pottery/editPottery.view.html',
         controller: 'editPotteryCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          authorize: ['authentication', '$location', function(authentication, $location) {
+            return authentication.isAuthenticated()
+                                 .then(function(loggedIn) {
+                                   if(!loggedIn) {
+                                     $location.path("/");
+                                   }
+                                   return loggedIn;
+                                 });
+          }]
+        }
       })
       .when('/events', {
         templateUrl: '/events/events.view.html',
         controller: 'eventsCtrl',
-        controllerAs: 'vm'
-      })
-      .when('/events/new', {
-        templateUrl: '/events/newEvent.view.html',
-        controller: 'newEventCtrl',
         controllerAs: 'vm'
       })
       .when('/events/:eventId', {
@@ -59,12 +76,7 @@
         controller: 'registerCtrl',
         controllerAs: 'vm'
       })
-      //.when('/location/:locationid', {
-      //  templateUrl: '/locationDetail/locationDetail.view.html',
-      //  controller: 'locationDetailCtrl',
-      //  controllerAs: 'vm'
-      //})
-      //.otherwise({redirectTo: '/'});
+      .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
