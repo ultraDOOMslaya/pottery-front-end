@@ -12,6 +12,7 @@
     vm.location = location;
     vm.routeParams = routeParams;
     vm.showFileInput = false;
+    vm.selectedOption = '';
 
     vm.pageHeader = {
       title: "Edit the current pottery.",
@@ -21,12 +22,19 @@
 
     /**
      * Get the pottery data and prepend the file names server path so angular file upload can find it.
+     * Also get the pottery type data.
      */
     potteryData.getPottery(vm.routeParams.potteryId)
       .success(function(data) {
-        vm.formData = { pottery : data };
-        console.log("On server load for the pottery edit page, heres the data: {}", JSON.stringify(vm.formData));
         data.potteryFileName = "/images/uploads/" + data.potteryFileName;
+
+        potteryData.potteryType()
+          .success(function(dataPottery) {
+            vm.formData = {
+              potteryTypes : dataPottery,
+              pottery : data
+            };
+          });
       });
 
     //The api needs the fileName but not the file path... remove the file path. 

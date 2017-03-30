@@ -66,6 +66,22 @@
         controller: 'editEventCtrl',
         controllerAs: 'vm'
       })
+      .when('/potteryType', {
+        templateUrl: '/potteryType/potteryType.view.html',
+        controller: 'potteryTypeCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          authorize: ['authentication', '$location', function(authentication, $location) {
+            return authentication.isAuthenticated()
+                                 .then(function(loggedIn) {
+                                   if(!loggedIn) {
+                                     $location.path("/");
+                                   }
+                                   return loggedIn;
+                                 });
+          }]
+        }       
+      })
       .when('/about', {
         templateUrl: '/common/views/genericText.view.html',
         controller: 'aboutCtrl',

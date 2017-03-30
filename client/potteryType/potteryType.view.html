@@ -1,0 +1,52 @@
+<navigation></navigation>
+
+<div class="container">
+    <page-header content="vm.pageHeader"></page-header>
+
+    <div class="row">
+        <div class="error">{{ vm.message }}</div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Pottery Type</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="type in vm.data.potteryTypes">
+                        <tr>
+                            <td>{{ type.potteryType }}</td>
+                            <td><button type="button" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <button type="button" class="panel-footer-button btn btn-primary" ng-click="vm.editPotteryType()">New</button>
+            </div>
+        </div>
+        <div ng-show="vm.editPanel" class="panel panel-default">
+            <div class="panel-body">
+
+                <form id="putPotteryType" name="putPotteryType" role="form" ng-submit="vm.onSubmit()" class="form-horizontal">
+                    <label for="type" class="col-xs-2 col-sm-2 control-label">Type:</label>
+                    <div class="col-xs-8 col-sm-8">
+                        <input name="type" ng-model="vm.formData.potteryType.potteryType" class="form-control" required="required"/>
+                    </div>
+                    <div class="col-xs-2 col-sm-2">
+                        <button type="submit" class="edit-button btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br />
+        <footer-generic></footer-generic>
+    </div>
+</div>
+

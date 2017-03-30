@@ -39,12 +39,30 @@
       });
     };
 
+    var potteryType = function() {
+      return $http.get("http://localhost:8080/potteryType", {
+        headers: {
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
+        }
+      }); 
+    }
+
+    var putPotteryType = function(data) {
+      return $http.put("http://localhost:8080/potteryType", data, {
+        headers: {
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
+        }
+      }); 
+    }
+
     return {
       pottery : pottery,
       addPottery : addPottery,
       updatePottery : updatePottery,
       getPottery : getPottery,
-      deletePottery : deletePottery
+      deletePottery : deletePottery,
+      potteryType : potteryType,
+      putPotteryType : putPotteryType
     };
   }
 
