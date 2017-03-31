@@ -16,11 +16,22 @@
       strapline: ""
     };
 
-    console.log("Currently loading the new pottery controller...");
+    
+    /**
+     * Get the pottery type data.
+     */
+    potteryData.potteryType()
+      .success(function(data) {
+        vm.formData = {
+          potteryTypes : data
+       };
+       console.log("pottery type is: {}", vm.formData.potteryTypes);
+    });
 
 
     vm.onSubmit = function () {
       vm.formError = "";
+      console.log("The formdata that isn't submitting: {}", vm.formData)
       if (!vm.formData.type || !vm.formData.description) {
         vm.formError = "All fields are required Dad, please try again";
         return false;
