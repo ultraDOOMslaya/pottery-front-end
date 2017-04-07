@@ -4,7 +4,7 @@
     <page-header content="vm.pageHeader"></page-header>
 
     <div class="row">
-        <div class="error">{{ vm.message }}</div>
+         <div ng-show="vm.formError.showError" class="panel error-panel">{{ vm.formError.message }}</div>
     </div>
     <div class="row">
         <div class="form-group">
@@ -12,7 +12,7 @@
                 <div class="row">
                     <label for="name" class="col-xs-2 col-sm-2 control-label">Pottery Type</label>
                     <div class="col-xs-10 col-sm-10">
-                        <select ng-model="vm.formData.pottery.potteryType" ng-options="x as x.potteryType for x in vm.formData.potteryTypes track by x.id"></select>
+                        <select class="form-control" ng-model="vm.formData.pottery.potteryType" ng-options="x as x.potteryType for x in vm.formData.potteryTypes track by x.id"></select>
                     </div>
                 </div>
                 <div class="row">

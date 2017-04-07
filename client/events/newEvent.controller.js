@@ -10,6 +10,7 @@
     var vm = this;
     vm.eventsData = eventsData;
     vm.location = location;
+    vm.formError;
 
     vm.pageHeader = {
       title: "Add a new event.",
@@ -20,7 +21,11 @@
       vm.formError = "";
       if (!vm.formData.name || !vm.formData.date || !vm.formData.description ||
           !vm.formData.time) {
-        vm.formError = "All fields are required Dad, please try again";
+
+        vm.formError = {
+          message: "All fields are required Dad, please try again.",
+          showError: true
+        };
         return false;
       } else {
         vm.addEvent(vm.formData);

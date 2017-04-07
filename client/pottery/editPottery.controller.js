@@ -13,6 +13,7 @@
     vm.routeParams = routeParams;
     vm.showFileInput = false;
     vm.selectedOption = '';
+    vm.formError = false;
 
     vm.pageHeader = {
       title: "Edit the current pottery.",
@@ -61,7 +62,11 @@
       console.log("On submit for edit pottery page and obj is: {}", vm.formData );
       if (!vm.formData.pottery.potteryType || !vm.formData.pottery.potteryDescription || !vm.formData.pottery.potteryFileName) {
         console.log("formData error");
-        vm.formError = "All fields are required Dad, please try again";
+
+        vm.formError = {
+          message: "All fields are required Dad, please try again.",
+          showError: true
+        };
         return false;
       } else {  
         console.log("the form data for the pottery: {}", vm.formData);

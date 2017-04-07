@@ -10,6 +10,7 @@
     var vm = this;
     vm.potteryData = potteryData;
     vm.location = location;
+    vm.formError = false;
 
     vm.pageHeader = {
       title: "Add a new pottery.",
@@ -31,9 +32,14 @@
 
     vm.onSubmit = function () {
       vm.formError = "";
-      console.log("The formdata that isn't submitting: {}", vm.formData)
       if (!vm.formData.type || !vm.formData.description) {
-        vm.formError = "All fields are required Dad, please try again";
+        //TODO: put this in a directive.
+        vm.formError = {
+            message: "All fields are required Dad, please try again.",
+            showError: true
+        };
+        console.log("The status of the error msg is: {}", vm.formError.showError);
+//        vm.message = ;"All fields are required Dad, please try again"
         return false;
       } else {  
         console.log("the form data for the pottery: {}", vm.formData);

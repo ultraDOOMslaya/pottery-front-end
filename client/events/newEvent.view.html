@@ -4,7 +4,7 @@
     <page-header content="vm.pageHeader"></page-header>
 
     <div class="row">
-        <div class="error">{{ vm.message }}</div>
+        <div ng-show="vm.formError.showError" class="panel error-panel">{{ vm.formError.message }}</div>
         <div class="form-group">
             <form id="addEvent" name="addEvent" role="form" ng-submit="vm.onSubmit()" class="form-horizontal">
                 <div class="row">

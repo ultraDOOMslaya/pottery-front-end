@@ -4,6 +4,13 @@
     <page-header content="vm.pageHeader"></page-header>
 
     <div class="row">
+        <div class="selectFilter">
+            <label for="name">Filter Pottery Type: </label>
+            <select class="form-control" ng-model="vm.selectedPotteryType" ng-change="vm.filterState()" ng-options="x as x.potteryType for x in vm.potteryTypes track by x.id"></select>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="error">{{ vm.message }}</div>
     </div>
     <div class="row">
@@ -19,8 +26,8 @@
                                     <span class="pottery-type badge badge-default">{{ pottery.potteryType.potteryType }}</span>
                                 </div>
                             </div>
-                            <img class="img-rounded" ng-src="images/uploads/{{pottery.potteryFileName}}"
-                                                     alt="pottery" />                    
+                            <img ng-src="images/uploads/{{pottery.potteryFileName}}"
+                                 alt="pottery" />                    
                         </div>
                     </div>
                 </li>
