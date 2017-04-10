@@ -5273,8 +5273,6 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
@@ -5330,7 +5328,7 @@ a.list-group-item.active > .badge,
 
 .thumbnail > img {
   display: block;
-  height: 100%;
+  height: auto;
   max-width: 100%;
   margin: auto;
   padding-top: 2%;
@@ -5681,7 +5679,7 @@ a.list-group-item:focus {
 
 .panel {
   margin-bottom: 20px;
-  background-color: #13a0aa;
+  background-color: gainsboro;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5776,6 +5774,7 @@ a.list-group-item:focus {
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  text-align: center; 
 }
 
 .panel-title {
@@ -5790,10 +5789,11 @@ a.list-group-item:focus {
 
 .panel-footer {
   padding: 10px 15px;
-  background-color: #18cbd8;
+  background-color: black;
   border-top: 1px solid #0d747c;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  height: 65px;
 }
 
 .panel-group .panel {
@@ -5827,9 +5827,9 @@ a.list-group-item:focus {
 }
 
 .panel-default > .panel-heading {
-  color: #444444;
-  background-color: #18cbd8;
-  border-color: #0d747c;
+  color: gainsboro;
+  background-color: black;
+  border-color: #gainsboro;
 }
 
 .panel-default > .panel-heading + .panel-collapse .panel-body {
