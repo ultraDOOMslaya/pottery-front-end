@@ -139,6 +139,8 @@
     border: 3em solid white;
     margin: auto;
     display: block;
+    max-width:30em;
+    max-height: 30em;
 }
 
 .bold-gradient {
@@ -167,3 +169,5 @@
     font-size: 1em;
     text-align: center;
 }
+
+

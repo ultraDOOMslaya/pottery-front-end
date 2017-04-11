@@ -20,6 +20,7 @@
     $scope.login = function(data) {
       console.log("The login data is: {}", JSON.stringify(data));
       authService.login(data.username, data.password).then(function(authenticated) {
+        console.log("creds are: {}", data.username, data.password);
         //$state.go('main.dash', {}, {reload: true});
         //$scope.setCurrentUsername(data.username);
         $scope.setCurrentUser({username: data.username});
