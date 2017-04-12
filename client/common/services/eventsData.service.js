@@ -4,21 +4,21 @@
     .module('maak-pottery')
     .service('eventsData', eventsData);
 
-  eventsData.$inject = ['$http', 'authentication'];
-  function eventsData ($http, authentication) { 
+  eventsData.$inject = ['$http', 'authentication', 'ENV_VARS'];
+  function eventsData ($http, authentication, ENV_VARS) { 
 
     //headers: {'Content-Type': 'application/json; charset=utf-8'}
 
     var event = function () {
-      return $http.get("http://localhost:8080/events");
+      return $http.get(ENV_VARS.apiUrl + "/events");
     };
 
     var eventById = function (eventId) {
-      return $http.get("http://localhost:8080/events/" + eventId);
+      return $http.get(ENV_VARS.apiUrl + "/events/" + eventId);
     };
 
     var updateEvent = function (data) {
-      return $http.put("http://localhost:8080/events", data, {
+      return $http.put(ENV_VARS.apiUrl + "/events", data, {
         headers: {
           'X-Authorization' : 'Bearer ' + authentication.getToken()
         }
@@ -26,9 +26,9 @@
     };
 
     var deleteEvent = function (eventId) {
-      return $http.delete("http://localhost:8080/events/" + eventId, {
+      return $http.delete(ENV_VARS.apiUrl + "/events/" + eventId, {
         headers: {
-          Authorization: 'Bearer ' + authentication.getToken()
+          'X-Authorization' : 'Bearer ' + authentication.getToken()
         } 
       });
     }

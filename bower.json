@@ -1,0 +1,11 @@
+{
+  "name": "maakestad-pottery",
+  "description": "A website designed to showcase the work of artisan potter Jon Maakestad.",
+  "main": "index.js",
+  "authors": [
+    "Ben Maakestad"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ultraDOOMslaya/app-for-dad",
+  "private": true
+}
