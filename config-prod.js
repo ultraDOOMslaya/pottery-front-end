@@ -1,6 +1,6 @@
  // Shared env vars in all environments 
 var shared = {
-    apiUrl: process.env.API_URL || "http://192.241.145.250:8080",
+    apiUrl: process.env.API_URL || "http://45.33.36.115:8080",
   apiToken: process.env.API_TOKEN,
   debug: process.env.DEBUG || true
 };

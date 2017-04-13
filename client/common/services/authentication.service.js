@@ -4,8 +4,8 @@
     .module('maak-pottery')
     .service('authentication', authentication);
 
-  authentication.$inject = ['$window', '$http', '$timeout'];
-  function authentication ($window, $http, $timeout) {
+  authentication.$inject = ['$window', '$http', '$timeout', 'ENV_VARS'];
+  function authentication ($window, $http, $timeout, ENV_VARS) {
     
     var saveToken = function (token) {
       $window.localStorage['maak-pottery-token'] = token;
@@ -16,7 +16,7 @@
     };
 
     register = function () {
-      return $http.post('http://localhost:8080/register', user).success(function(data) {
+      return $http.post(ENV_VARS.apiUrl + '/register', user).success(function(data) {
         saveToken(data.token);
       });
     };
@@ -24,7 +24,7 @@
     login = function (user) {
       return $http({
                method: 'POST',
-               url: 'http://localhost:8080/api/auth/login',
+               url: ENV_VARS + '/api/auth/login',
                data: user,
                headers: { 
                  'X-Requested-With' : 'XMLHttpRequest'
