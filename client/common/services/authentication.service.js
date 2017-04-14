@@ -24,7 +24,7 @@
     login = function (user) {
       return $http({
                method: 'POST',
-               url: ENV_VARS + '/api/auth/login',
+               url: ENV_VARS.apiUrl + '/api/auth/login',
                data: user,
                headers: { 
                  'X-Requested-With' : 'XMLHttpRequest'
@@ -35,7 +35,9 @@
     };
 
     logout = function () {
+      console.log("Logout func called.");
       $window.localStorage.removeItem('maak-pottery-token');
+      $window.location.reload();
     };
 
     var isLoggedIn = function() {
