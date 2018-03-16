@@ -45,7 +45,7 @@
         console.log("the form data for the pottery: {}", vm.formData);
         console.log("the form data photo for the pottery: {}", vm.formData.potteryFile);
         vm.formData.potteryFile.upload = Upload.upload({
-          url: 'http://localhost:3000/api/pottery',
+          url: 'http://localhost:80/api/pottery',
           method: 'POST',
           file: vm.formData.potteryFile
         });

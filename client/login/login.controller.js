@@ -22,7 +22,6 @@
       authService.login(data.username, data.password).then(function(authenticated) {
         console.log("creds are: {}", data.username, data.password);
         //$state.go('main.dash', {}, {reload: true});
-        //$scope.setCurrentUsername(data.username);
         $scope.setCurrentUser({username: data.username});
         console.log("Set the current user to scope.username.");
       }, function(err) {

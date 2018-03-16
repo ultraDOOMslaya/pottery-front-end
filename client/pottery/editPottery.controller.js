@@ -75,7 +75,7 @@
         //TDOD (Boilerplate) externalize this since the newPottery controller also uses this.
         if (vm.showFileInput === true) {
           vm.formData.pottery.potteryFileName.upload = Upload.upload({
-            url: 'http://localhost:3000/api/pottery',
+            url: 'http://localhost:80/api/pottery',
             method: 'POST',
             file: vm.formData.pottery.potteryFileName
           });
